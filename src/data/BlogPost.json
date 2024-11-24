@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Learning React Day 1",
+    "author": "Zhenhao Yang",
+    "date": "2024-11-22",
+    "description": "My First Step to the React",
+    "content": "Prerequisite-JavaScript",
+    "tags": ["React", "JavaScript", "Web Development"]
+  },
+  {
+    "id": 2,
+    "title": "Learning React Day 2",
+    "author": "Allen Yang",
+    "date": "2024-11-22",
+    "description": "2",
+    "content": "<h1>Learning React Day 1</h1><h2>Prequisite</h2><ol><li>Javascript</li><li>HTML</li><li>CSS</li></ol><pre><code>{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"age\": 25\n}</code></pre><table><thead><tr><th>Syntax</th><th>Description</th></tr></thead><tbody><tr><td>Header</td><td>Title</td></tr><tr><td>Paragraph</td><td>Text</td></tr></tbody></table><p><del>The world is flat.</del></p><p>Here's a sentence with a footnote. <sup><a href=\"#footnote1\">1</a></sup></p><footer><p id=\"footnote1\">1: This is the footnote.</p></footer>",
+    "tags": ["React", "JavaScript", "Web Development"]
+  }
+]
