@@ -152,7 +152,10 @@ export default function Portfolio() {
             <span className="sr-only">GitHub</span>
             <svg
               className="w-6 h-6"
-              fill="currentColor"
+              fill={clsx({
+                white: currentTheme === "dark",
+                currentColor: currentTheme === "nord",
+              })}
               viewBox="0 0 24 24"
               aria-hidden="true"
             >
@@ -172,7 +175,10 @@ export default function Portfolio() {
             <span className="sr-only">LinkedIn</span>
             <svg
               className="w-6 h-6"
-              fill="currentColor"
+              fill={clsx({
+                white: currentTheme === "dark",
+                currentColor: currentTheme === "nord",
+              })}
               viewBox="0 0 24 24"
               aria-hidden="true"
             >
@@ -191,7 +197,10 @@ export default function Portfolio() {
             <svg
               className="w-6 h-6"
               fill="none"
-              stroke="currentColor"
+              stroke={clsx({
+                white: currentTheme === "dark",
+                currentColor: currentTheme === "nord",
+              })}
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >

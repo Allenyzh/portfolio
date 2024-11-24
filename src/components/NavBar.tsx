@@ -12,10 +12,7 @@ export default function NavBar({
   return (
     <div className="navbar bg-base-100 sticky top-0 z-10 custom-box-shadow">
       <div className="navbar-start">
-        
-
-        
-        <div className="dropdown">
+        <div className="dropdown lg:hidden">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +31,7 @@ export default function NavBar({
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow font-semibold "
           >
             <li>
               <a
@@ -57,28 +54,35 @@ export default function NavBar({
             </li>
           </ul>
         </div>
-
-
-
       </div>
-      <div className="navbar-center">
+
+      <div className="navbar-center lg:hidden">
         <a className="btn btn-ghost text-xl">Zhenhao Yang</a>
       </div>
+
       <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-      <li><a>Item 1</a></li>
-      <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
-      </li>
-      <li><a>Item 3</a></li>
-    </ul>
-  </div>
+        <ul className="menu menu-horizontal px-1 font-semibold">
+          <li>
+            <a
+              onClick={() => setCurrentPage("portfolio")}
+              className="hover:text-blue-200"
+            >
+              Homepage
+            </a>
+          </li>
+          <li>
+            <a
+              onClick={() => {
+                setCurrentPage("blog");
+                setCurrentBlogPostId(null);
+              }}
+              className="hover:text-blue-200"
+            >
+              Blog
+            </a>
+          </li>
+        </ul>
+      </div>
       <div className="navbar-end pr-4">
         <ColorThemeSwap />
       </div>
