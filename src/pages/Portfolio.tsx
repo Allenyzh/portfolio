@@ -115,7 +115,13 @@ export default function Portfolio() {
                 <p>{project.description}</p>
               </div>
               <div className="flex items-center pl-8 pb-4">
-                <TagLabel p={2} />
+                <TagLabel
+                  p={2}
+                  theme={clsx({
+                    white: currentTheme === "dark",
+                    currentColor: currentTheme === "nord",
+                  })}
+                />
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, index) => (
                     <BadgeStyle key={index} text={tag} theme="color" />

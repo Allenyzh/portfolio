@@ -2,12 +2,14 @@ interface TagLabelProps {
   size?: number;
   color?: string;
   p?: number;
+  theme?: string;
 }
 
 export default function TagLabel({
   size = 4,
   color = "gray-600",
   p = 0,
+  theme = "currentColor",
 }: TagLabelProps) {
   return (
     <>
@@ -15,7 +17,7 @@ export default function TagLabel({
         <svg
           className={`w-${size} h-${size} text-${color} `}
           fill="none"
-          stroke="currentColor"
+          stroke={theme}
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
         >
