@@ -12,6 +12,9 @@ export default function NavBar({
   return (
     <div className="navbar bg-base-100 sticky top-0 z-10 custom-box-shadow">
       <div className="navbar-start">
+        
+
+        
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
             <svg
@@ -54,10 +57,28 @@ export default function NavBar({
             </li>
           </ul>
         </div>
+
+
+
       </div>
       <div className="navbar-center">
         <a className="btn btn-ghost text-xl">Zhenhao Yang</a>
       </div>
+      <div className="navbar-center hidden lg:flex">
+    <ul className="menu menu-horizontal px-1">
+      <li><a>Item 1</a></li>
+      <li>
+        <details>
+          <summary>Parent</summary>
+          <ul className="p-2">
+            <li><a>Submenu 1</a></li>
+            <li><a>Submenu 2</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a>Item 3</a></li>
+    </ul>
+  </div>
       <div className="navbar-end pr-4">
         <ColorThemeSwap />
       </div>

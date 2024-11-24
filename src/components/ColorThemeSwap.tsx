@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export default function ColorThemeSwap() {
   const [theme, setTheme] = useState(
-    () => localStorage.getItem("theme") || "light"
+    () => localStorage.getItem("theme") || "nord"
   );
 
   useEffect(() => {
@@ -11,7 +11,7 @@ export default function ColorThemeSwap() {
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+    setTheme((prev) => (prev === "nord" ? "dark" : "nord"));
   };
 
   return (
@@ -20,9 +20,9 @@ export default function ColorThemeSwap() {
       <input
         type="checkbox"
         className="theme-controller"
-        value="light"
+        value="nord"
         onChange={toggleTheme}
-        checked={theme === "light"}
+        checked={theme === "nord"}
       />
 
       {/* sun icon */}

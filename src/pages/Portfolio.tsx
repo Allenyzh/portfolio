@@ -1,24 +1,34 @@
 import Allen from "../assets/allen.jpg";
 import BadgeStyle from "../components/BadgeStyle";
 import TagLabel from "../components/TagLabel";
+import BubbleSort from "../assets/bubbleSort.png";
+import Contact from "../assets/contact.png";
+import Dpic from "../assets/picture.png";
+import clsx from "clsx";
+import { useState, useEffect } from "react";
+import "./Portfolio.css";
+
 const projects = [
   {
     id: 1,
     title: "Bubble Sort animation",
     description: "An animation demo of bubble soty",
     tags: ["HTML", "JavaScript", "jquery"],
+    img: BubbleSort,
   },
   {
     id: 2,
     title: "Simple Item Management",
     description: "A simple backend server with Express.js ",
     tags: ["HTML", "jquery", "Express.js"],
+    img: Contact,
   },
   {
     id: 3,
     title: "Personal Website",
     description: "Personal website using React + Vite + Tailwind",
     tags: ["React", "TypeScript", "Vite", "Tailwind css"],
+    img: null,
   },
 ];
 
@@ -38,30 +48,73 @@ const skills = [
 ];
 
 export default function Portfolio() {
+  const [currentTheme, setCurrentTheme] = useState<string | null>("");
+
+  useEffect(() => {
+    const getTheme = () => document.documentElement.getAttribute("data-theme");
+    setCurrentTheme(getTheme());
+
+    const observer = new MutationObserver(() => {
+      setCurrentTheme(getTheme());
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="container mx-auto px-6 py-8">
-      <section id="about" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">About Me</h2>
-        <div className="flex flex-col md:flex-row items-center gap-8">
+      <div className="hero bg-base-200 min-h-svh">
+        <div className="hero-content flex-col lg:flex-row">
           <img
             src={Allen || "https://via.placeholder.com/150"}
-            alt="allen"
-            className="rounded-xl w-32"
+            className=" rounded-lg shadow-2xl min-w-32 max-w-64"
           />
-          <p className="text-lg">
-            I'm a passionate Full-stack developer, Math Student at Concordia
-          </p>
+          <div>
+            <h1
+              className={clsx("text-3xl font-bold", {
+                "text-orange-300": currentTheme === "dark",
+                "text-orange-700": currentTheme === "nord",
+              })}
+            >
+              My Name is
+            </h1>
+            <h1 className="text-5xl font-bold">Zhenhao Yang</h1>
+            <p className="py-6">
+              I'm a passionate Full-stack developer and Math Student at
+              Concordia
+            </p>
+            <button className="btn btn-primary">
+              <a href="#projects">Get Started</a>
+            </button>
+          </div>
         </div>
-      </section>
+      </div>
 
-      <section id="projects" className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">Projects</h2>
+      <section id="projects" className="mb-24 mt-24">
+        <h2 className="text-2xl font-bold mb-4 mt-24">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
-            <div key={project.id} className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-              <p className="text-gray-600 mb-4">{project.description}</p>
-              <div className="flex items-center">
+            <div
+              key={project.id}
+              className="card glass min-w-32 shadow-md project-link"
+            >
+              <figure>
+                <img
+                  src={project.img || Dpic}
+                  alt="card!"
+                  className="max-h-64"
+                />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">{project.title}</h2>
+                <p>{project.description}</p>
+              </div>
+              <div className="flex items-center pl-8 pb-4">
                 <TagLabel p={2} />
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, index) => (

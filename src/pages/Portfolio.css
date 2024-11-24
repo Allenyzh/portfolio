@@ -1,0 +1,6 @@
+.project-link {
+  transition: transform 0.3s ease;
+}
+.project-link:hover {
+  transform: translateY(-12px);
+}
