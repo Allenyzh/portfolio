@@ -53,7 +53,7 @@ export default function BlogPost({ postId, onBack }: BlogPostProps) {
       </article>
       <div className="mt-8 text-center">
         <button onClick={onBack} className="btn btn-primary">
-          Back to Blog List
+          Back
         </button>
       </div>
     </div>

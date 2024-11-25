@@ -7,6 +7,7 @@ import Dpic from "../assets/picture.png";
 import clsx from "clsx";
 import { useState, useEffect } from "react";
 import "./Portfolio.css";
+import blogPosts from "../data/BlogPost.json";
 
 const projects = [
   {
@@ -15,6 +16,7 @@ const projects = [
     description: "An animation demo of bubble soty",
     tags: ["HTML", "JavaScript", "jquery"],
     img: BubbleSort,
+    link: "https://www.allenyzh.com/Bootcamp_javascript/1012-bubble_sort/",
   },
   {
     id: 2,
@@ -22,6 +24,7 @@ const projects = [
     description: "A simple backend server with Express.js ",
     tags: ["HTML", "jquery", "Express.js"],
     img: Contact,
+    link: "https://github.com/Allenyzh/Bootcamp_javascript/tree/main/1102-express",
   },
   {
     id: 3,
@@ -29,6 +32,7 @@ const projects = [
     description: "Personal website using React + Vite + Tailwind",
     tags: ["React", "TypeScript", "Vite", "Tailwind css"],
     img: null,
+    link: "",
   },
 ];
 
@@ -47,7 +51,11 @@ const skills = [
   "Restful API",
 ];
 
-export default function Portfolio() {
+interface BlogProps {
+  onPostClick: (id: number) => void;
+}
+
+export default function Portfolio({ onPostClick }: BlogProps) {
   const [currentTheme, setCurrentTheme] = useState<string | null>("");
 
   useEffect(() => {
@@ -100,9 +108,11 @@ export default function Portfolio() {
         <h2 className="text-2xl font-bold mb-4 mt-24">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
-            <div
+            <a
               key={project.id}
               className="card glass min-w-32 shadow-md project-link"
+              href={project.link}
+              target="_blank"
             >
               <figure>
                 <img
@@ -129,7 +139,7 @@ export default function Portfolio() {
                   ))}
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </section>
@@ -139,6 +149,38 @@ export default function Portfolio() {
         <div className="flex flex-wrap gap-2">
           {skills.map((skill, index) => (
             <BadgeStyle key={index} text={skill} />
+          ))}
+        </div>
+      </section>
+
+      <section id="blog" className="mb-12">
+        <h2 className="text-2xl font-bold mb-4">Recent Blogs</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {blogPosts.map((blog) => (
+            <button
+              key={blog.id}
+              className="card glass min-w-32 shadow-md project-link"
+              onClick={() => onPostClick(blog.id)}
+            >
+              <div className="card-body">
+                <h2 className="card-title">{blog.title}</h2>
+                <p>{blog.description}</p>
+              </div>
+              <div className="flex items-center pl-8 pb-4">
+                <TagLabel
+                  p={2}
+                  theme={clsx({
+                    white: currentTheme === "dark",
+                    currentColor: currentTheme === "nord",
+                  })}
+                />
+                <div className="flex flex-wrap gap-2">
+                  {blog.tags.map((tag, index) => (
+                    <BadgeStyle key={index} text={tag} theme="color" />
+                  ))}
+                </div>
+              </div>
+            </button>
           ))}
         </div>
       </section>

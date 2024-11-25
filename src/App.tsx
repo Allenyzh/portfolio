@@ -23,7 +23,17 @@ function App() {
           setCurrentBlogPostId={setCurrentBlogPostId}
         />
         <main className="flex-1">
-          {currentPage === "portfolio" && <Portfolio />}
+          {currentPage === "portfolio" &&
+            (currentBlogPostId !== null ? (
+              <BlogPost
+                postId={currentBlogPostId}
+                onBack={() => setCurrentBlogPostId(null)}
+              />
+            ) : (
+              <Portfolio
+                onPostClick={(id: number) => setCurrentBlogPostId(id)}
+              />
+            ))}
           {currentPage === "blog" &&
             (currentBlogPostId !== null ? (
               <BlogPost
