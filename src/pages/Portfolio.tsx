@@ -88,9 +88,10 @@ export default function Portfolio() {
               I'm a passionate Full-stack developer and Math Student at
               Concordia
             </p>
-            <button className="btn btn-primary">
-              <a href="#projects">Get Started</a>
-            </button>
+
+            <a href="#projects" className="btn glass custom-box-shadow">
+              Get Started
+            </a>
           </div>
         </div>
       </div>

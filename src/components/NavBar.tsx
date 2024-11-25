@@ -36,7 +36,7 @@ export default function NavBar({
             <li>
               <a
                 onClick={() => setCurrentPage("portfolio")}
-                className="hover:text-blue-200"
+                className={`hover:text-cyan-600 `}
               >
                 Homepage
               </a>
@@ -47,7 +47,7 @@ export default function NavBar({
                   setCurrentPage("blog");
                   setCurrentBlogPostId(null);
                 }}
-                className="hover:text-blue-200"
+                className={`hover:text-cyan-600 `}
               >
                 Blog
               </a>
@@ -65,7 +65,7 @@ export default function NavBar({
           <li>
             <a
               onClick={() => setCurrentPage("portfolio")}
-              className="hover:text-blue-200"
+              className={`hover:text-cyan-600 `}
             >
               Homepage
             </a>
@@ -76,7 +76,7 @@ export default function NavBar({
                 setCurrentPage("blog");
                 setCurrentBlogPostId(null);
               }}
-              className="hover:text-blue-200"
+              className={`hover:text-cyan-600 `}
             >
               Blog
             </a>
