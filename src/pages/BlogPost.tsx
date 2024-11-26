@@ -36,11 +36,48 @@ export default function BlogPost({ postId, onBack }: BlogPostProps) {
             <BlogAuthor name={blogPost.author} />
             <BlogDate date={blogPost.date} />
           </div>
-
-          <div
-            className="prose prose-lg max-w-none"
-            dangerouslySetInnerHTML={{ __html: blogPost.content }}
-          />
+          {blogPost.content.map((item, index) => {
+            switch (item.type) {
+              case "p":
+                return (
+                  <p key={index} className="pb-5">
+                    {item.text}
+                  </p>
+                );
+              case "img":
+                return (
+                  <img
+                    key={index}
+                    src={item.src}
+                    alt={item.alt || "Blog image"}
+                    className="pb-5"
+                  />
+                );
+              case "code":
+                return (
+                  <pre key={index} className="bg-gray-100 p-4 rounded mb-5">
+                    <code>{item.text}</code>
+                  </pre>
+                );
+              case "subtitle":
+                return (
+                  <h2 key={index} className="text-2xl font-semibold mb-4">
+                    {item.text}
+                  </h2>
+                );
+              case "li":
+                return (
+                  <ul key={index} className="list-disc pl-5 mb-5">
+                    {Array.isArray(item.items) &&
+                      item.items.map((listItem, listIndex) => (
+                        <li key={listIndex}>{listItem}</li>
+                      ))}
+                  </ul>
+                );
+              default:
+                return null;
+            }
+          })}
         </div>
         <div className="bg-gray-100 px-6 py-4 md:px-8 md:py-6">
           <div className="flex items-center flex-wrap gap-2">
