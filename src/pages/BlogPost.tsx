@@ -27,7 +27,7 @@ export default function BlogPost({ postId, onBack }: BlogPostProps) {
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-3xl">
-      <article className="bg-white shadow-lg rounded-lg overflow-hidden">
+      <article className="shadow-inner rounded-lg overflow-hidden">
         <div className="p-6 md:p-8">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
             {blogPost.title}
@@ -79,7 +79,7 @@ export default function BlogPost({ postId, onBack }: BlogPostProps) {
             }
           })}
         </div>
-        <div className="bg-gray-100 px-6 py-4 md:px-8 md:py-6">
+        <div className="shadow-inner px-6 py-4 md:px-8 md:py-6">
           <div className="flex items-center flex-wrap gap-2">
             <TagLabel size={5} />
             {blogPost.tags.map((tag, index) => (
