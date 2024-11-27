@@ -11,7 +11,7 @@
         "type": "p",
         "text": "This website is designed to showcase my professional skills, projects, and provide a platform for sharing thoughts and insights via a blog."
       },
-      { "type": "img", "src": "../assets/image.png", "alt": "" },
+      { "type": "img", "src": "./image.png", "alt": "" },
       { "type": "code", "text": "npm i" },
       { "type": "code", "text": "npm run dev" },
       { "type": "subtitle", "text": "2. Features" },
