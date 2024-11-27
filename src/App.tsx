@@ -34,6 +34,7 @@ function App() {
                 onPostClick={(id: number) => setCurrentBlogPostId(id)}
               />
             ))}
+
           {currentPage === "blog" &&
             (currentBlogPostId !== null ? (
               <BlogPost
