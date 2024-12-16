@@ -76,10 +76,10 @@ export default function Portfolio({ onPostClick }: BlogProps) {
 
   return (
     <div className="container mx-auto px-6 py-8">
-      <div className="hero bg-base-200 min-h-svh">
+      <div className="hero min-h-svh">
         <div className="hero-content flex-col lg:flex-row">
           <img
-            src={Allen || "https://via.placeholder.com/150"}
+            src={Allen}
             className=" rounded-lg shadow-2xl min-w-32 max-w-64"
           />
           <div>
